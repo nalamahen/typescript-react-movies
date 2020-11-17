@@ -109,7 +109,7 @@ workflows:
                 - master
       - deploy-to-aws-cloudfront:
           requires:
-            - build
+            - deploy-to-aws-s3
           filters:
             branches:
               only:
