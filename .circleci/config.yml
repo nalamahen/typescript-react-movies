@@ -22,7 +22,7 @@ aliases:
     save_cache:
       paths:
         - node_modules
-        key: app-{{ checksum "package.json" }}
+      key: app-{{ checksum "package.json" }}
 
 jobs:
   build:
@@ -32,8 +32,8 @@ jobs:
       - *show-current-branch-name
       - *restore-cache
       - *install-dependencies
-      - *save_cache
-      
+      - *save_cache:
+          
   deploy-to-aws-s3:
     executor: app-executor
     steps:
