@@ -11,7 +11,7 @@ aliases:
         name: Show current branch
         command: echo ${CIRCLE_BRANCH}
   - &restore_cache
-    - restore_cache:
+    restore_cache:
         keys:
           - app-{{ checksum "package.json" }}
           - app-
@@ -31,7 +31,7 @@ aliases:
         sudo apt-get -y -qq update
         sudo apt-get install -y awscli
         sudo apt-get install python-pip python-dev build-essential
-  - &build-Project
+  - &build-project
     run:
       name: Build Project
       command: |
@@ -57,7 +57,7 @@ jobs:
       - checkout
       - *show-current-branch-name
       - *install-aws-cli
-      - *build-Project
+      - *build-project
       - run:
           name: Deploy to AWS S3
           command: |
