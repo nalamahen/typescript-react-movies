@@ -40,10 +40,6 @@ aliases:
           cd build
           zip ../build.zip -r * .[^.]*
           echo "Build successfull"
-
-
-
-
 jobs:
   build:
     executor: app-executor
