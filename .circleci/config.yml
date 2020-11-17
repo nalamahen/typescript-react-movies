@@ -11,7 +11,7 @@ aliases:
         name: Show current branch
         command: echo ${CIRCLE_BRANCH}
   - &restore_cache
-     - restore_cache:
+    - restore_cache:
         keys:
           - app-{{ checksum "package.json" }}
           - app-
@@ -34,12 +34,13 @@ aliases:
   - &build-Project
     run:
       name: Build Project
-        command: |
-          npm install
-          npm run build
-          cd build
-          zip ../build.zip -r * .[^.]*
-          echo "Build successfull"
+      command: |
+        npm install
+        npm run build
+        cd build
+        zip ../build.zip -r * .[^.]*
+        echo "Build successfull"
+
 jobs:
   build:
     executor: app-executor
