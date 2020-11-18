@@ -113,9 +113,18 @@ workflows:
                 - development
                 - staging
                 - master
+      - prettier:
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - development
+                - staging
+                - master
       - deploy-to-aws-s3:
           requires:
-            - linting
+            - prettier
           filters:
             branches:
               only:
