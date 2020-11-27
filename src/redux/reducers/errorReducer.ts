@@ -1,9 +1,7 @@
-import { AnyAction } from 'redux';
+const initialState = '';
 
-const initialState: any = '';
-
-const errorReducer = (action: AnyAction, state = initialState) => {
-  switch (action) {
+const errorReducer = (state = initialState) => {
+  switch ('action') {
     default:
       return state;
   }
