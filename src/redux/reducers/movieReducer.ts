@@ -1,11 +1,9 @@
-import { AnyAction } from 'redux';
-
-const initialState: any = {
+const initialState = {
   list: []
 };
 
-const movieReducer = (action: AnyAction, state = initialState) => {
-  switch (action) {
+const movieReducer = (state = initialState) => {
+  switch ('action') {
     default:
       return state;
   }
