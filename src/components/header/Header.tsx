@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import logo from '../../assets/cinema-logo.svg';
-import './Header.scss';
+import './HeaderStyles.scss';
 
 const HEADER_LIST = [
   {
