@@ -1,7 +1,8 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import SlideShow from '../slide-show/SlideShow';
 
 import './MainContent.scss';
+import Paginate from '../paginate/Paginate';
 
 const MainContent: FC = () => {
   const images: any[] = [
@@ -17,12 +18,24 @@ const MainContent: FC = () => {
     }
   ];
 
+  const [currentPage, setCurrentPage] = useState<number>(1);
+
+  const paginate = (type: string) => {
+    if (type === 'prev' && currentPage >= 1) {
+      setCurrentPage((prev) => prev - 1);
+    } else {
+      setCurrentPage((prev) => prev + 1);
+    }
+  };
+
   return (
     <div className="main-content">
       <SlideShow images={images} auto={true} showArrow={true} />
       <div className="grid-moive-title">
         <div className="movie-type"> Now playing</div>
-        <div className="paginate">Paginate</div>
+        <div className="paginate">
+          <Paginate currentPage={currentPage} totalPages={10} paginate={paginate} />
+        </div>
       </div>
       {/* displya grid component */}
     </div>
